@@ -126,7 +126,7 @@ def get_scripts_list(scripts_dir: str) -> List[str]:
 def get_global_script_configs(source_dirs: List[Path]) -> Dict[str, List[str]]:
     global_scripts = {"before": [], "after": []}
     for source_dir in source_dirs:
-        schema_files = glob.glob(os.path.join(source_dir, "**.yml"), recursive=True)
+        schema_files = glob.glob(os.path.join(source_dir, "**", "*.yml"), recursive=True)
         for file in schema_files:
             schema_yml = load_yaml(file)
             if schema_yml is not None:
